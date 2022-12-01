@@ -1,0 +1,14 @@
+<p>動画投稿ページ</p>
+  <%= form_with model: @movie, url: movies_path do |f| %>
+<div class="col-md-1 text-left"><%= f.label :name, '動画名' %></div>
+<div class="col-md-8"><%= f.text_field :name, placeholder: "動画名を記入してください", required: true, size: "44" %></div>
+<div class="col-md-1 text-left"><%= f.label :genre_id, 'タグを選択してください' %></div>
+<div class="col-md-8"><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name),prompt: "-- 選択してください --", required: true, class: "w-50" %></div>
+
+              <%= f.label :video, placeholder: "video" %>
+              <%= f.file_field :video, accept: 'video/*' %>
+
+<div class="col-md-1 text-left"><%= f.label :introduction, '動画紹介文' %></div>
+<div class="col-md-8"><%= f.text_field :introduction, placeholder: "動画紹介文を記入してください", required: true, size: "44" %></div>
+  <%= f.submit '新規投稿', class: "btn btn-success" %>
+  <% end %>

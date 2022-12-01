@@ -1,0 +1,9 @@
+<%= form_with model: @genre, url: genre_path, method: :patch do |f| %>
+<div>
+  <label class="kana">タグ名　　　　　　</label>
+  <%= f.text_field :name %>
+</div>
+<%= f.submit "変更を保存", class:"btn btn-success" %>
+<% end %>
+
+<%= link_to "タグを削除", genre_path, method: :delete %>
