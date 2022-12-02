@@ -1,5 +1,11 @@
 <h1>動画一覧</h1>
-<% @movies.each do |movie| %>
-<%= video_tag(movie.video.to_s, loop: true, autoplay: true, muted: true, controls: true) %>
-<td><%= link_to movie.name, movie_path(movie.id) %></td>
-<% end %>
+<div class = "container">
+  <div class = "row">
+    <% @movies.each do |movie| %>
+    <div class = "col-3">
+    <%= video_tag(movie.video.to_s, loop: true, autoplay: false, muted: true, controls: true) %>
+    <%= link_to movie.name, movie_path(movie.id) %>
+    </div>
+    <% end %>
+  </div>
+</div>
